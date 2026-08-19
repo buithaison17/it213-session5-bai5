@@ -1,0 +1,28 @@
+spring:
+  application:
+  name: bai5
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bai5?createDatabaseIfNotExist=true
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+  ai:
+    openai:
+      base-url: https://openrouter.ai/api/v1
+      api-key: ${OPEN_ROUTER_API_KEY}
+      chat:
+        model: gpt-oss-20b
+        temperature: 0.4
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
